@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const usersSlice = createSlice({
   name: "users",
   initialState: {
-    users: null,
+    users: [],
   },
   reducers: {
     setUsers: (state, { payload: users }) => {
@@ -11,10 +11,16 @@ const usersSlice = createSlice({
     },
 
     fetchUsers: () => {},
+
+    removeUser: (state, { payload: id }) => {
+      state.users = state.users.filter((user) => user.id !== id);
+      console.log("user deleted");
+      return state;
+    },
   },
 });
 
-export const { fetchUsers, setUsers } = usersSlice.actions;
+export const { fetchUsers, setUsers, removeUser } = usersSlice.actions;
 
 export const selectUsersState = (state) => state.users;
 

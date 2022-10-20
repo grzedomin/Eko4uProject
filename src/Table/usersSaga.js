@@ -1,5 +1,5 @@
-import { takeLatest, call, put, delay, select } from "redux-saga/effects";
-import { fetchUsers, setUsers } from "./usersSlice";
+import { takeEvery, call, put, delay, select } from "redux-saga/effects";
+import { fetchUsers, setUsers, removeUser } from "./usersSlice";
 import axios from "axios";
 
 function* fetchUsersHandler() {
@@ -11,6 +11,11 @@ function* fetchUsersHandler() {
   }
 }
 
+function* deleteUserById(id) {
+  yield axios.delete(`https://fronttest.ekookna.pl/user/${id}`);
+  yield put(removeUser(id));
+}
 export function* usersSaga() {
-  yield takeLatest(fetchUsers.type, fetchUsersHandler);
+  yield takeEvery(fetchUsers.type, fetchUsersHandler);
+  yield takeEvery(removeUser.type, deleteUserById);
 }

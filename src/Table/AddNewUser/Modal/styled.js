@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
- 
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -24,24 +23,24 @@ export const Overlay = styled.div`
 `;
 
 export const ModalHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   border-bottom: 1px solid #dee2e6;
 `;
 
-export const FormWrapper = styled.form`
-padding: 1rem;
-justify-content: flex-start;
+export const Header = styled.h2`
+  line-height: 1.5;
+  font-size: 1.8rem;
 `;
+
+export const FormWrapper = styled.form``;
 
 export const Fieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   border: none;
+  padding: 1.5rem;
 `;
 
 export const Label = styled.label`
@@ -61,7 +60,7 @@ export const Input = styled.input`
   border-radius: 3px;
   border: 1px solid #485665;
   width: 100%;
-  padding: 3px;
+  padding: 0.25rem 0.5rem;
 `;
 
 export const Button = styled.button`
@@ -104,9 +103,10 @@ export const Button = styled.button`
     `}
 `;
 
-export const Buttons = styled.div`
+export const ModalFooter = styled.div`
+  padding: 1rem 2rem;
   display: flex;
   justify-content: flex-end;
   gap: 15px;
-  margin-top: 25px;
+  border-top: 1px solid #dee2e6;
 `;

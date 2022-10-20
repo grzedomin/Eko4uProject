@@ -2,11 +2,11 @@ import {
   Overlay,
   Wrapper,
   ModalHeader,
-  XButton,
+  Header,
   FormWrapper,
   Fieldset,
   Button,
-  Buttons,
+  ModalFooter,
   Label,
   Title,
   Input,
@@ -18,7 +18,7 @@ export const Modal = ({ setIsOpen }) => {
       <Overlay />
       <Wrapper>
         <ModalHeader>
-          <h1>Dodaj nowego pracownika</h1>
+          <Header>Dodaj nowego pracownika</Header>
         </ModalHeader>
         <FormWrapper>
           <Fieldset>
@@ -43,16 +43,16 @@ export const Modal = ({ setIsOpen }) => {
               <Input placeholder="00-000" />
             </Label>
             <Label>
-              <Title>Miasto</Title>
+              <Title>Miasto:</Title>
               <Input placeholder="Katowice" />
             </Label>
           </Fieldset>
-          <Buttons>
+          <ModalFooter>
             <Button cancel onClick={() => setIsOpen(false)}>
               Anuluj
             </Button>
             <Button save>Zapisz</Button>
-          </Buttons>
+          </ModalFooter>
         </FormWrapper>
       </Wrapper>
     </>
