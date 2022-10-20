@@ -13,6 +13,7 @@ import { AddNewUser } from "./AddNewUser";
 
 export const Table = () => {
   const [users, setUsers] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const client = axios.create({
     baseURL: "https://fronttest.ekookna.pl/",
@@ -39,7 +40,7 @@ export const Table = () => {
 
   return (
     <>
-      <AddNewUser />
+      <AddNewUser isOpen={isOpen} setIsOpen={setIsOpen}/>
       <StyledTable>
         <TableHead>
           <TableRow>
@@ -64,12 +65,16 @@ export const Table = () => {
                   <TableCell>{user.city}</TableCell>
                   <TableCell>{user.age}</TableCell>
                   <TableCell>{user.id}</TableCell>
-                  <ButtonsCell>
-                    <Button update>Edytuj</Button>
-                    <Button remove onClick={() => removeUser(user.id)}>
-                      Usuń
-                    </Button>
-                  </ButtonsCell>
+                  <TableCell>
+                    <ButtonsCell>
+                      <Button update onClick={() => setIsOpen(true)}>
+                        Edytuj
+                      </Button>
+                      <Button remove onClick={() => removeUser(user.id)}>
+                        Usuń
+                      </Button>
+                    </ButtonsCell>
+                  </TableCell>
                 </TableRow>
               );
             })}

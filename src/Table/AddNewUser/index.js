@@ -1,8 +1,16 @@
+import { useState } from "react";
+import { Modal } from "./Modal";
+
 import { AddNewUserButton, Wrapper } from "./styled";
-export const AddNewUser = () => {
+export const AddNewUser = ({ isOpen, setIsOpen }) => {
   return (
-    <Wrapper>
-      <AddNewUserButton>Dodaj nowego uzytkownika</AddNewUserButton>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <AddNewUserButton onClick={() => setIsOpen(true)}>
+          Dodaj nowego uzytkownika
+        </AddNewUserButton>
+      </Wrapper>
+      <div>{isOpen && <Modal setIsOpen={setIsOpen} />}</div>
+    </>
   );
 };
