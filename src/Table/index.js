@@ -9,7 +9,9 @@ import {
 import { useEffect, useState } from "react";
 import { AddNewUser } from "./AddNewUser";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, selectUsers } from "./usersSlice";
+import { fetchUsers, selectUsers, removeUser } from "./usersSlice";
+import { FaRegEdit } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 export const Table = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +21,7 @@ export const Table = () => {
 
   useEffect(() => {
     dispatch(fetchUsers());
-  });
-
-  // const removeUser = (id) => {
-  //   client.delete(`https://fronttest.ekookna.pl/user/${id}`);
-  //   const newUsers = users.filter((user) => user.id !== id);
-  //   console.log(newUsers);
-  //   setUsers(newUsers);
-  // };
+  }, []);
 
   return (
     <>
@@ -34,7 +29,7 @@ export const Table = () => {
       <StyledTable>
         <TableHead>
           <TableRow>
-            <TableCell>Imię</TableCell>
+            <TableCell header>Imię</TableCell>
             <TableCell>Nazwisko</TableCell>
             <TableCell>Kod pocztowy</TableCell>
             <TableCell>Miejscowość</TableCell>
@@ -58,10 +53,13 @@ export const Table = () => {
                   <TableCell>
                     <ButtonsCell>
                       <Button update onClick={() => setIsOpen(true)}>
-                        Edytuj
+                        <FaRegEdit /> {/*Edit icon*/}
                       </Button>
-                      <Button remove /*onClick={() => removeUser(user.id)}*/>
-                        Usuń
+                      <Button
+                        remove
+                        onClick={() => dispatch(removeUser(user.id))}
+                      >
+                        <FaTrash /> {/* Delete icon */}
                       </Button>
                     </ButtonsCell>
                   </TableCell>

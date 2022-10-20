@@ -4,7 +4,7 @@ export const StyledTable = styled.table`
   border: 1px solid #e4e2e2;
   padding: 16px;
   background-color: #fff;
-  
+
   border-collapse: collapse;
   font-size: 16px;
   min-width: 600px;
@@ -14,22 +14,22 @@ export const StyledTable = styled.table`
 `;
 
 export const TableHead = styled.thead`
-    font-weight: 600;
+  font-weight: 600;
 `;
 
 export const TableRow = styled.tr`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 
-  &:hover{
-      background-color: rgba(23,187,221,20);
-      cursor: pointer;
+  &:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
   }
 `;
 
 export const TableCell = styled.td`
   border: 1px solid #e4e2e2;
-  padding: 16px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,12 +40,6 @@ export const TableCell = styled.td`
     css`
       word-break: inherit;
     `}
-  &:first-child {
-    min-width: 200px;
-  }
-  &:nth-child(2) {
-    min-width: 300px;
-  }
 `;
 
 export const ButtonsCell = styled.td`
@@ -56,13 +50,10 @@ export const ButtonsCell = styled.td`
 `;
 
 export const Button = styled.button`
-  min-height: 30px;
-  min-width: 30px;
+  padding: 0.65rem 0.8rem;
   border: none;
   transition: 0.2s;
-  font-size: 16px;
   color: #fff;
-  padding: 10px;
   border-radius: 5px;
   font-weight: 600;
 
@@ -72,13 +63,12 @@ export const Button = styled.button`
   &:active {
     transform: scale(110%);
     transition: 0.1s;
-    
   }
   ${({ update }) =>
     update &&
     css`
       background-color: #f5a822;
-      
+
       &:hover {
         background-color: #d99e36;
       }
