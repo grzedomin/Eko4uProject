@@ -6,41 +6,31 @@ import {
   ButtonsCell,
   Button,
 } from "./styled";
-import { useFetchData } from "./useFetchData";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { AddNewUser } from "./AddNewUser";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers, selectUsers } from "./usersSlice";
 
 export const Table = () => {
-  const [users, setUsers] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const users = useSelector(selectUsers);
 
-  const client = axios.create({
-    baseURL: "https://fronttest.ekookna.pl/",
-  });
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await client.get();
-        setUsers(response.data.users);
-      } catch (error) {
-        console.log(error, "ERRORRIX");
-      }
-    };
-    fetchUsers();
-  }, []);
+    dispatch(fetchUsers());
+  });
 
-  const removeUser = (id) => {
-    client.delete(`https://fronttest.ekookna.pl/user/${id}`);
-    const newUsers = users.filter((user) => user.id !== id);
-    console.log(newUsers);
-    setUsers(newUsers);
-  };
+  // const removeUser = (id) => {
+  //   client.delete(`https://fronttest.ekookna.pl/user/${id}`);
+  //   const newUsers = users.filter((user) => user.id !== id);
+  //   console.log(newUsers);
+  //   setUsers(newUsers);
+  // };
 
   return (
     <>
-      <AddNewUser isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <AddNewUser isOpen={isOpen} setIsOpen={setIsOpen} />
       <StyledTable>
         <TableHead>
           <TableRow>
@@ -70,7 +60,7 @@ export const Table = () => {
                       <Button update onClick={() => setIsOpen(true)}>
                         Edytuj
                       </Button>
-                      <Button remove onClick={() => removeUser(user.id)}>
+                      <Button remove /*onClick={() => removeUser(user.id)}*/>
                         Usuń
                       </Button>
                     </ButtonsCell>
