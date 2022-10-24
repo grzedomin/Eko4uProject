@@ -14,15 +14,17 @@ import {
   selectUsers,
   removeUser,
   setUserSlice,
+  selectUsersByQuery,
 } from "./usersSlice";
 import { FaRegEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useQueryParameter } from "../SearchBar/queryParameters";
 
 export const Table = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const users = useSelector(selectUsers);
-
+  const query = useQueryParameter("szukaj");
+  const users = useSelector((state) => selectUsersByQuery(state, query));
   const dispatch = useDispatch();
 
   useEffect(() => {
