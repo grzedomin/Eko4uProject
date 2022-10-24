@@ -13,8 +13,6 @@ import {
   fetchUsers,
   selectUsers,
   removeUser,
-  setUserData,
-  editUser,
   setUserSlice,
 } from "./usersSlice";
 import { FaRegEdit } from "react-icons/fa";
