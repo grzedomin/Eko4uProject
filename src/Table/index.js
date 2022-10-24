@@ -9,9 +9,17 @@ import {
 import { useEffect, useState } from "react";
 import { AddNewUser } from "./AddNewUser";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, selectUsers, removeUser } from "./usersSlice";
+import {
+  fetchUsers,
+  selectUsers,
+  removeUser,
+  setUserData,
+  editUser,
+  setUserSlice,
+} from "./usersSlice";
 import { FaRegEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export const Table = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +40,7 @@ export const Table = () => {
             <TableCell header>Imię</TableCell>
             <TableCell>Nazwisko</TableCell>
             <TableCell>Kod pocztowy</TableCell>
-            <TableCell>Miejscowość</TableCell>
+            <TableCell>Ulica</TableCell>
             <TableCell>Miasto</TableCell>
             <TableCell>Wiek</TableCell>
             <TableCell>Id</TableCell>
@@ -52,9 +60,17 @@ export const Table = () => {
                   <TableCell>{user.id}</TableCell>
                   <TableCell>
                     <ButtonsCell>
-                      <Button update onClick={() => setIsOpen(true)}>
-                        <FaRegEdit /> {/*Edit icon*/}
-                      </Button>
+                      <Link to={`edit-user/${user.id}`}>
+                        <Button
+                          update
+                          onClick={() => {
+                            setIsOpen(true);
+                            dispatch(setUserSlice(user));
+                          }}
+                        >
+                          <FaRegEdit /> {/*Edit icon*/}
+                        </Button>
+                      </Link>
                       <Button
                         remove
                         onClick={() => dispatch(removeUser(user.id))}
