@@ -1,19 +1,27 @@
 import { useDate } from "./useDate";
-import { DateInfo } from "./styled";
+import { DateWrapper, DateAndTime, Day } from "./styled";
 
 export const Clock = () => {
   const date = useDate();
 
+  const day = () =>
+    date.toLocaleString("pl", {
+      weekday: "long",
+    });
   const formatDate = () =>
     date.toLocaleDateString("pl", {
-      weekday: "long",
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
       day: "numeric",
-      month: "long",
+      month: "numeric",
       year: "numeric",
     });
 
-  return <DateInfo>{formatDate(date)}</DateInfo>;
+  return (
+    <DateWrapper>
+      <Day>{day(date).toLocaleUpperCase()}</Day>
+      <DateAndTime>{formatDate(date)}</DateAndTime>
+    </DateWrapper>
+  );
 };
