@@ -41,6 +41,9 @@ export const Modal = () => {
                 placeholder="1"
                 value={user.id}
                 onChange={handleChange("id")}
+                required
+                type="number"
+                min="1"
               />
             </Label>
             <Label>
@@ -49,6 +52,8 @@ export const Modal = () => {
                 placeholder="Jan"
                 value={user.first_name}
                 onChange={handleChange("first_name")}
+                required
+                type="text"
               />
             </Label>
             <Label>
@@ -57,6 +62,8 @@ export const Modal = () => {
                 placeholder="Kowalski"
                 value={user.last_name}
                 onChange={handleChange("last_name")}
+                required
+                type="text"
               />
             </Label>
             <Label>
@@ -65,6 +72,9 @@ export const Modal = () => {
                 placeholder="20"
                 value={user.age}
                 onChange={handleChange("age")}
+                required
+                type="number"
+                min="18"
               />
             </Label>
             <Label>
@@ -73,6 +83,8 @@ export const Modal = () => {
                 placeholder="Polna"
                 value={user.street}
                 onChange={handleChange("street")}
+                required
+                type="text"
               />
             </Label>
             <Label>
@@ -81,6 +93,8 @@ export const Modal = () => {
                 placeholder="00-000"
                 value={user.postal_code}
                 onChange={handleChange("postal_code")}
+                required
+                type="text"
               />
             </Label>
             <Label>
@@ -89,6 +103,8 @@ export const Modal = () => {
                 placeholder="Katowice"
                 value={user.city}
                 onChange={handleChange("city")}
+                required
+                type="text"
               />
             </Label>
           </Fieldset>
