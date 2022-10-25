@@ -15,7 +15,7 @@ import {
   Input,
 } from "./styled";
 
-export const Modal = () => {
+export const AddNewUserModal = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 

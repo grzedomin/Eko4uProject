@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { clearInput } from "../usersSlice";
-import { Modal } from "./Modal";
+import { AddNewUserModal } from "./AddNewUserModal";
 
 import { AddNewUserButton, Wrapper } from "./styled";
 
@@ -22,7 +22,7 @@ export const AddNewUser = ({ isOpen, setIsOpen }) => {
           </AddNewUserButton>
         </Link>
       </Wrapper>
-      <div>{isOpen && <Modal setIsOpen={setIsOpen} />}</div>
+      <div>{isOpen && <AddNewUserModal setIsOpen={setIsOpen} />}</div>
     </>
   );
 };

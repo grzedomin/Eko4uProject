@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./Header";
 import { Table } from "./Table";
-import { Modal } from "./Table/AddNewUser/Modal";
+import { AddNewUserModal } from "./Table/AddNewUser/AddNewUserModal";
 import { SearchBar } from "./SearchBar";
 import { EditUserModal } from "./Table/EditUserModal";
 
@@ -13,7 +13,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/Eko4uProject" element={<Table />} />
-          <Route path="/Eko4uProject/add-user" element={<Modal />} />
+          <Route path="/Eko4uProject/add-user" element={<AddNewUserModal />} />
           <Route path="/Eko4uProject/edit-user/:id" element={<EditUserModal />} />
         </Routes>
       </main>
