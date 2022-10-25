@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.js": "/Eko4uProject/static/js/main.abd57348.js",
+    "main.js": "/Eko4uProject/static/js/main.82cf23c3.js",
     "static/js/787.7206a88b.chunk.js": "/Eko4uProject/static/js/787.7206a88b.chunk.js",
     "static/media/logo.svg": "/Eko4uProject/static/media/logo.dfae9bcbcba97fd4c8f8745ee2a4f50f.svg",
     "index.html": "/Eko4uProject/index.html",
-    "main.abd57348.js.map": "/Eko4uProject/static/js/main.abd57348.js.map",
+    "static/media/githubIcon.svg": "/Eko4uProject/static/media/githubIcon.04be58c17b3d5e9744424d414240dd85.svg",
+    "main.82cf23c3.js.map": "/Eko4uProject/static/js/main.82cf23c3.js.map",
     "787.7206a88b.chunk.js.map": "/Eko4uProject/static/js/787.7206a88b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.abd57348.js"
+    "static/js/main.82cf23c3.js"
   ]
 }
