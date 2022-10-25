@@ -16,7 +16,9 @@ const usersSlice = createSlice({
   },
   reducers: {
     fetchUsers: () => {},
-    addNewUser: () => {},
+    addNewUser: (state, { payload: user }) => {
+      state.users = [...state.users, { user }];
+    },
     setUsers: (state, { payload: users }) => {
       state.users = users;
     },
@@ -32,6 +34,9 @@ const usersSlice = createSlice({
       state.user = user;
       return state;
     },
+    clearInput: (state) => {
+      state.user = [];
+    },
   },
 });
 
@@ -42,6 +47,7 @@ export const {
   setUserSlice,
   editUser,
   addNewUser,
+  clearInput,
 } = usersSlice.actions;
 
 export const selectUsersState = (state) => state.users;
