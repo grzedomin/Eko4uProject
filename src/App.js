@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import { Header } from "./Header";
 import { Table } from "./Table";
 import { Modal } from "./Table/AddNewUser/Modal";
