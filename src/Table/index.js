@@ -26,9 +26,10 @@ export const Table = () => {
   const users = useSelector((state) => selectUsersByQuery(state, query));
   const dispatch = useDispatch();
   const { id } = useParams();
+
   useEffect(() => {
     dispatch(fetchUsers());
-  }, []);
+  }, [fetchUsers]);
 
   return (
     <>
