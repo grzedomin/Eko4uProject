@@ -11,7 +11,7 @@ export const AddNewUser = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <Wrapper>
-        <Link to="/add-user">
+        <Link to="/Eko4uProject/add-user">
           <AddNewUserButton
             onClick={() => {
               setIsOpen(true);

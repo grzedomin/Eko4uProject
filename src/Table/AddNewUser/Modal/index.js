@@ -109,7 +109,7 @@ export const Modal = () => {
             </Label>
           </Fieldset>
           <ModalFooter>
-            <Link to="/">
+            <Link to="/Eko4uProject">
               <Button cancel>Anuluj</Button>
             </Link>
             <Button

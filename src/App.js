@@ -12,9 +12,9 @@ function App() {
       <SearchBar />
       <main>
         <Routes>
-          <Route path="/" element={<Table />} />
-          <Route path="/add-user" element={<Modal />} />
-          <Route path="/edit-user/:id" element={<EditUserModal />} />
+          <Route path="/Eko4uProject" element={<Table />} />
+          <Route path="/Eko4uProject/add-user" element={<Modal />} />
+          <Route path="/Eko4uProject/edit-user/:id" element={<EditUserModal />} />
         </Routes>
       </main>
     </div>
