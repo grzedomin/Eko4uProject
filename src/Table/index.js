@@ -11,14 +11,13 @@ import { AddNewUser } from "./AddNewUser";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchUsers,
-  selectUsers,
   removeUser,
   setUserSlice,
   selectUsersByQuery,
 } from "./usersSlice";
 import { FaRegEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQueryParameter } from "../SearchBar/queryParameters";
 
 export const Table = () => {
@@ -26,7 +25,7 @@ export const Table = () => {
   const query = useQueryParameter("szukaj");
   const users = useSelector((state) => selectUsersByQuery(state, query));
   const dispatch = useDispatch();
-
+  const { id } = useParams();
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
@@ -60,7 +59,7 @@ export const Table = () => {
                   <TableCell>{user.id}</TableCell>
                   <TableCell>
                     <ButtonsCell>
-                      <Link to={`edit-user/${user.id}`}>
+                      <Link to={`edit-user/${id}`}>
                         <Button
                           update
                           onClick={() => {
