@@ -1,14 +1,6 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  clearInput,
-  editUser,
-  selectUser,
-  selectUsers,
-  setSingleUser,
-  setUserSlice,
-} from "../../usersSlice";
+import { Link } from "react-router-dom";
+import { addNewUser, selectUser, setUserSlice } from "../../usersSlice";
 import {
   Overlay,
   Wrapper,
@@ -23,7 +15,7 @@ import {
   Input,
 } from "./styled";
 
-export const Modal = ({ setIsOpen }) => {
+export const Modal = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -45,7 +37,11 @@ export const Modal = ({ setIsOpen }) => {
           <Fieldset>
             <Label>
               <Title>ID:</Title>
-              <Input disabled value={user.id} />
+              <Input
+                placeholder="1"
+                value={user.id}
+                onChange={handleChange("id")}
+              />
             </Label>
             <Label>
               <Title>Imię:</Title>
@@ -103,10 +99,10 @@ export const Modal = ({ setIsOpen }) => {
             <Button
               save
               onClick={() => {
-                dispatch(editUser(user));
+                dispatch(addNewUser(user));
               }}
             >
-              Zapisz
+              Dodaj
             </Button>
           </ModalFooter>
         </FormWrapper>
