@@ -36,7 +36,7 @@ export const Table = () => {
       <StyledTable>
         <TableHead>
           <TableRow>
-            <TableCell header>Imię</TableCell>
+            <TableCell>Imię</TableCell>
             <TableCell>Nazwisko</TableCell>
             <TableCell>Kod pocztowy</TableCell>
             <TableCell>Ulica</TableCell>
@@ -45,10 +45,11 @@ export const Table = () => {
             <TableCell>Id</TableCell>
           </TableRow>
         </TableHead>
-        <tbody>
-          {users &&
-            users.map((user) => {
-              return (
+
+        {users &&
+          users.map((user, myKey) => {
+            return (
+              <tbody key={myKey}>
                 <TableRow key={user.id}>
                   <TableCell>{user.first_name}</TableCell>
                   <TableCell>{user.last_name}</TableCell>
@@ -79,9 +80,9 @@ export const Table = () => {
                     </ButtonsCell>
                   </TableCell>
                 </TableRow>
-              );
-            })}
-        </tbody>
+              </tbody>
+            );
+          })}
       </StyledTable>
     </>
   );
