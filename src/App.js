@@ -4,6 +4,7 @@ import { Header } from "./Header";
 import { Table } from "./Table";
 import { Modal } from "./Table/AddNewUser/Modal";
 import { SearchBar } from "./SearchBar";
+import { EditUserModal } from "./Table/EditUserModal";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Table />} />
           <Route path="/add-user" element={<Modal />} />
-          <Route path="/edit-user/:user" element={<Modal />} />
+          <Route path="/edit-user/:id" element={<EditUserModal />} />
         </Routes>
       </main>
     </div>
