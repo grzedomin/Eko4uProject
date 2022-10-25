@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { clearInput } from "../usersSlice";
 import { Modal } from "./Modal";
 
@@ -19,7 +18,7 @@ export const AddNewUser = ({ isOpen, setIsOpen }) => {
               dispatch(clearInput());
             }}
           >
-            Dodaj nowego uzytkownika
+            Dodaj nowego pracownika
           </AddNewUserButton>
         </Link>
       </Wrapper>

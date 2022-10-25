@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Section = styled.section`
+  padding: 0 30px;
+`;
+
 export const Title = styled.h2`
   font-size: 26px;
   margin-top: 0;

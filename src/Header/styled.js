@@ -4,6 +4,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 30px;
 `;
 
 export const Wrapper = styled.div`

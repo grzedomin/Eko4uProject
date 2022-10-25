@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const AddNewUserButton = styled.button`
@@ -14,7 +14,6 @@ export const AddNewUserButton = styled.button`
   font-size: 15px;
   font-weight: 600;
   transition: 0.2s;
- 
 
   &:hover {
     cursor: pointer;

@@ -1,5 +1,5 @@
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
-import { Input, Title } from "./styled";
+import { Section, Input, Title } from "./styled";
 
 export const SearchBar = () => {
   const query = useQueryParameter("szukaj");
@@ -12,13 +12,13 @@ export const SearchBar = () => {
     });
   };
   return (
-    <div>
+    <Section>
       <Title>Szukaj pracownika</Title>
       <Input
         placeholder="Wpisz nazwisko pracownika"
         value={query || ""}
         onChange={onInputChange}
       />
-    </div>
+    </Section>
   );
 };
