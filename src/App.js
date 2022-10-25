@@ -4,6 +4,7 @@ import { Table } from "./Table";
 import { AddNewUserModal } from "./Table/AddNewUser/AddNewUserModal";
 import { SearchBar } from "./SearchBar";
 import { EditUserModal } from "./Table/EditUserModal";
+import { Footer } from "./Footer";
 
 function App() {
   return (
@@ -14,9 +15,13 @@ function App() {
         <Routes>
           <Route path="/Eko4uProject" element={<Table />} />
           <Route path="/Eko4uProject/add-user" element={<AddNewUserModal />} />
-          <Route path="/Eko4uProject/edit-user/:id" element={<EditUserModal />} />
+          <Route
+            path="/Eko4uProject/edit-user/:id"
+            element={<EditUserModal />}
+          />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
