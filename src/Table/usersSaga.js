@@ -14,26 +14,31 @@ function* fetchUsersHandler() {
     const response = yield axios.get("https://fronttest.ekookna.pl/");
     yield put(setUsers(response.data.users));
   } catch (error) {
-    yield console.log(error, "errorix");
+    yield console.log(error, "Error while getting users list from database");
   }
 }
 
 function* deleteUserById(id) {
-  yield axios({
-    url: `https://fronttest.ekookna.pl/user/${id.payload}`,
-    method: "delete",
-    headers: {
-      "Access-Control-Allow-Origin": "http://localhost:3000",
-      "Content-type": "application/json",
-      "Access-Control-Allow-Methods": "DELETE",
-    },
-  });
-  yield put(removeUser(id));
+  try {
+    yield axios({
+      url: `https://fronttest.ekookna.pl/user/${id.payload}`,
+      method: "delete",
+      headers: {
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Content-type": "application/json",
+        "Access-Control-Allow-Methods": "DELETE",
+      },
+    });
+    yield put(removeUser(id));
+  } catch (error) {
+    yield console.log(error, "Error while deleting user!");
+  }
 }
 
 function* updateUser(user) {
   const id = user.payload.id;
   const userBody = yield select(selectUserJSON);
+  console.log(userBody, "userBody in updateUser saga")
   try {
     yield axios({
       url: `https://fronttst.ekookna.pl/user/${id}`,
@@ -46,16 +51,17 @@ function* updateUser(user) {
     });
     yield call(fetchUsers);
   } catch (error) {
-    yield console.log(error, "error update");
+    yield console.log(error, "Error while updating user!");
   }
 }
 
 function* addUser() {
   const newUserbody = yield select(selectUserJSON);
+  console.log(newUserbody, "newUserBody in addUser saga")
   try {
     yield axios.post(`https://fronttst.ekookna.pl/user/`, newUserbody);
   } catch (error) {
-    console.log(error);
+    yield console.log(error, "Error while adding new user!");
   }
 }
 
