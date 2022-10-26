@@ -6,7 +6,6 @@ export const StyledTable = styled.table`
   background-color: #fff;
   border-collapse: collapse;
   font-size: 16px;
-
 `;
 
 export const TableHead = styled.thead`
@@ -30,19 +29,14 @@ export const TableCell = styled.td`
   align-items: center;
   justify-content: center;
   word-break: break-word;
-
-  ${({ noBreakWord }) =>
-    noBreakWord &&
-    css`
-      word-break: inherit;
-    `}
+  text-align: center;
 `;
 
-export const ButtonsCell = styled.td`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+export const ButtonsCell = styled.div`
+  @media (max-width: 990px) {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 export const Button = styled.button`
@@ -52,6 +46,11 @@ export const Button = styled.button`
   color: #fff;
   border-radius: 5px;
   font-weight: 600;
+  margin: 0 5px;
+
+  @media (max-width: 990px) {
+    padding: 0.3rem 0.5rem;
+  }
 
   &:hover {
     cursor: pointer;
