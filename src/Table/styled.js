@@ -4,11 +4,9 @@ export const StyledTable = styled.table`
   border: 1px solid #e4e2e2;
   padding: 16px;
   background-color: #fff;
-  margin: auto;
   border-collapse: collapse;
   font-size: 16px;
-  min-width: 600px;
-  margin: 30px auto;
+
 `;
 
 export const TableHead = styled.thead`
