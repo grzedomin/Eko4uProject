@@ -32,20 +32,21 @@ function* deleteUserById(id) {
 }
 
 function* updateUser(user) {
-  const id = user.payload.id;
   const userBody = yield select(selectUserJSON);
+
   console.log(userBody, "userBody in updateUser saga");
   try {
-    yield axios({
-      url: `https://fronttst.ekookna.pl/user/${id}`,
-      headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3000",
-      },
-      method: "put",
-      data: userBody,
-    });
-    yield call(fetchUsers);
+    yield fetch(
+      `https://fronttst.ekookna.pl/user/${user.payload.id}?_method=PUT`,
+      {
+        method: "POST",
+        body: userBody,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    //(yield call(fetchUsers));
   } catch (error) {
     yield console.log(error, "Error while updating user!");
   }
