@@ -33,30 +33,33 @@ function* deleteUserById(id) {
 
 function* updateUser(user) {
   const userBody = yield select(selectUserJSON);
-
+  const id = user.payload.id;
   console.log(userBody, "userBody in updateUser saga");
+
   try {
-    yield fetch(
-      `https://fronttst.ekookna.pl/user/${user.payload.id}?_method=PUT`,
-      {
-        method: "POST",
-        body: userBody,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    //(yield call(fetchUsers));
+    yield fetch(`https://fronttst.ekookna.pl/user/${id}?_method=PUT`, {
+      method: "POST",
+      body: userBody,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     yield console.log(error, "Error while updating user!");
   }
 }
 
 function* addUser() {
-  const newUserbody = yield select(selectUserJSON);
-  console.log(newUserbody, "newUserBody in addUser saga");
+  const newUserBody = yield select(selectUserJSON);
+  console.log(newUserBody, "newUserBody in addUser saga");
   try {
-    yield axios.post(`https://fronttst.ekookna.pl/user/`, newUserbody);
+    yield fetch(`https://fronttst.ekookna.pl/user/?_method=POST`, {
+      method: "POST",
+      body: newUserBody,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     yield console.log(error, "Error while adding new user!");
   }
