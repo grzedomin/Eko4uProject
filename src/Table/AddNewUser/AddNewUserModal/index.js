@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addNewUser, selectUser, setUserSlice } from "../../usersSlice";
+import {
+  addNewUser,
+  clearInput,
+  selectUser,
+  setUserSlice,
+} from "../../usersSlice";
 import {
   Overlay,
   Wrapper,
@@ -25,6 +30,8 @@ export const AddNewUserModal = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    dispatch(addNewUser(user));
+    dispatch(clearInput());
   };
   return (
     <>
@@ -114,9 +121,9 @@ export const AddNewUserModal = () => {
             </Link>
             <Button
               save
-              onClick={() => {
-                dispatch(addNewUser(user));
-              }}
+              // onClick={() => {
+              //   dispatch(addNewUser(user));
+              // }}
             >
               Dodaj
             </Button>
