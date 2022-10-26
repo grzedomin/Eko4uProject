@@ -5,22 +5,14 @@ import { AddNewUserModal } from "./Table/AddNewUser/AddNewUserModal";
 import { SearchBar } from "./SearchBar";
 import { EditUserModal } from "./Table/EditUserModal";
 import { Footer } from "./Footer";
+import { Main } from "./Main";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <SearchBar />
-      <main>
-        <Routes>
-          <Route path="/Eko4uProject" element={<Table />} />
-          <Route path="/Eko4uProject/add-user" element={<AddNewUserModal />} />
-          <Route
-            path="/Eko4uProject/edit-user/:id"
-            element={<EditUserModal />}
-          />
-        </Routes>
-      </main>
+      <Main />
       <Footer />
     </div>
   );
