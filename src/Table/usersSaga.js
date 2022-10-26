@@ -1,4 +1,4 @@
-import { takeEvery, put, takeLatest, select, call } from "redux-saga/effects";
+import { takeEvery, put, select, call } from "redux-saga/effects";
 import {
   fetchUsers,
   setUsers,
@@ -20,16 +20,12 @@ function* fetchUsersHandler() {
 
 function* deleteUserById(id) {
   try {
-    yield axios({
-      url: `https://fronttest.ekookna.pl/user/${id.payload}`,
-      method: "delete",
-      headers: {
-        "Access-Control-Allow-Origin": "http://localhost:3000",
-        "Content-type": "application/json",
-        "Access-Control-Allow-Methods": "DELETE",
-      },
-    });
-    yield put(removeUser(id));
+    yield fetch(
+      `https://fronttest.ekookna.pl/user/${id.payload}?_method=DELETE`,
+      {
+        method: "POST",
+      }
+    );
   } catch (error) {
     yield console.log(error, "Error while deleting user!");
   }
@@ -38,7 +34,7 @@ function* deleteUserById(id) {
 function* updateUser(user) {
   const id = user.payload.id;
   const userBody = yield select(selectUserJSON);
-  console.log(userBody, "userBody in updateUser saga")
+  console.log(userBody, "userBody in updateUser saga");
   try {
     yield axios({
       url: `https://fronttst.ekookna.pl/user/${id}`,
@@ -57,7 +53,7 @@ function* updateUser(user) {
 
 function* addUser() {
   const newUserbody = yield select(selectUserJSON);
-  console.log(newUserbody, "newUserBody in addUser saga")
+  console.log(newUserbody, "newUserBody in addUser saga");
   try {
     yield axios.post(`https://fronttst.ekookna.pl/user/`, newUserbody);
   } catch (error) {
@@ -68,6 +64,6 @@ function* addUser() {
 export function* usersSaga() {
   yield takeEvery(fetchUsers.type, fetchUsersHandler);
   yield takeEvery(removeUser.type, deleteUserById);
-  yield takeLatest(editUser.type, updateUser);
+  yield takeEvery(editUser.type, updateUser);
   yield takeEvery(addNewUser.type, addUser);
 }

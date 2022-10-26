@@ -4,15 +4,17 @@ const usersSlice = createSlice({
   name: "users",
   initialState: {
     users: [],
-    user: {
-      first_name: "",
-      last_name: "",
-      age: "",
-      city: "",
-      postal_code: "",
-      street: "",
-      id: "",
-    },
+    user: [
+      {
+        first_name: null,
+        last_name: null,
+        postal_code: null,
+        street: null,
+        city: null,
+        age: null,
+        id: null,
+      },
+    ],
   },
   reducers: {
     fetchUsers: () => {},
@@ -28,11 +30,9 @@ const usersSlice = createSlice({
     },
     setUserSlice: (state, action) => {
       state.user = action.payload;
-      return state;
     },
     editUser: (state, { payload: user }) => {
       state.user = user;
-      return state;
     },
     clearInput: (state) => {
       state.user = [];
