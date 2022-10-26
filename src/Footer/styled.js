@@ -7,6 +7,7 @@ export const Wrapper = styled.footer`
   justify-content: center;
   align-items: center;
   gap: 5px;
+  margin-top: 35px;
 `;
 
 export const StyledLink = styled.a`
