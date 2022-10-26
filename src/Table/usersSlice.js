@@ -4,22 +4,13 @@ const usersSlice = createSlice({
   name: "users",
   initialState: {
     users: [],
-    user: [
-      {
-        first_name: null,
-        last_name: null,
-        postal_code: null,
-        street: null,
-        city: null,
-        age: null,
-        id: null,
-      },
-    ],
+    user: {},
   },
   reducers: {
     fetchUsers: () => {},
     addNewUser: (state, { payload: user }) => {
-      state.users = [...state.users, { user }];
+      state.users.push(user);
+      return state;
     },
     setUsers: (state, { payload: users }) => {
       state.users = users;
