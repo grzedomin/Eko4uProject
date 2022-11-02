@@ -20,7 +20,7 @@ import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useQueryParameter } from "../SearchBar/queryParameters";
 
-export const Table = () => {
+export const users = () => {
   const [isOpen, setIsOpen] = useState(false);
   const query = useQueryParameter("szukaj");
   const users = useSelector((state) => selectUsersByQuery(state, query));

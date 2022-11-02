@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { editUser, selectUser, setUserSlice } from "../../Table/usersSlice";
+import { editUser, selectUser, setUserSlice } from "../usersSlice";
 import {
   Overlay,
   Wrapper,
