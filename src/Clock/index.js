@@ -1,5 +1,5 @@
 import { useDate } from "./useDate";
-import { DateWrapper, DateAndTime, Day } from "./styled";
+import { DateWrapper, Day } from "./styled";
 
 export const Clock = () => {
   const date = useDate();
@@ -21,7 +21,7 @@ export const Clock = () => {
   return (
     <DateWrapper>
       <Day>{day(date).toLocaleUpperCase()}</Day>
-      <DateAndTime>{formatDate(date)}</DateAndTime>
+      <span>{formatDate(date)}</span>
     </DateWrapper>
   );
 };

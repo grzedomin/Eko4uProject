@@ -6,8 +6,10 @@ export const DateWrapper = styled.div`
   flex-direction: column;
   gap: 15px;
   color: #454745;
-`;
-export const DateAndTime = styled.span`
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const Day = styled.h3`
