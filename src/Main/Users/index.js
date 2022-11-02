@@ -18,7 +18,7 @@ import {
 import { FaRegEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useQueryParameter } from "../SearchBar/queryParameters";
+import { useQueryParameter } from "../../SearchBar/queryParameters";
 
 export const users = () => {
   const [isOpen, setIsOpen] = useState(false);
