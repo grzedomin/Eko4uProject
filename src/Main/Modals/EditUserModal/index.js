@@ -1,11 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  addNewUser,
-  clearInput,
-  selectUser,
-  setUserSlice,
-} from "../../usersSlice";
+import { editUser, selectUser, setUserSlice } from "../../Users/usersSlice";
 import {
   Overlay,
   Wrapper,
@@ -20,7 +15,7 @@ import {
   Input,
 } from "./styled";
 
-export const AddNewUserModal = () => {
+export const EditUserModal = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -30,15 +25,13 @@ export const AddNewUserModal = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(addNewUser(user));
-    dispatch(clearInput());
   };
   return (
     <>
       <Overlay />
       <Wrapper>
         <ModalHeader>
-          <Header>Dodaj nowego pracownika</Header>
+          <Header>Edytuj dane pracownika</Header>
         </ModalHeader>
         <FormWrapper onSubmit={onFormSubmit}>
           <Fieldset>
@@ -85,7 +78,7 @@ export const AddNewUserModal = () => {
               />
             </Label>
             <Label>
-              <Title>Miejscowość:</Title>
+              <Title>Ulica:</Title>
               <Input
                 placeholder="Polna"
                 value={user.street}
@@ -121,11 +114,11 @@ export const AddNewUserModal = () => {
             </Link>
             <Button
               save
-              // onClick={() => {
-              //   dispatch(addNewUser(user));
-              // }}
+              onClick={() => {
+                dispatch(editUser(user));
+              }}
             >
-              Dodaj
+              Zapisz
             </Button>
           </ModalFooter>
         </FormWrapper>

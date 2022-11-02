@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { clearInput } from "../usersSlice";
-import { AddNewUserModal } from "./AddNewUserModal";
+import { AddNewUserModal } from "../../Modals/AddNewUserModal";
 
 import { AddNewUserButton, Wrapper } from "./styled";
 
