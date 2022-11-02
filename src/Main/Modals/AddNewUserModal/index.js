@@ -11,7 +11,6 @@ import {
   Wrapper,
   ModalHeader,
   Header,
-  FormWrapper,
   Fieldset,
   Button,
   ModalFooter,
@@ -40,7 +39,7 @@ export const AddNewUserModal = () => {
         <ModalHeader>
           <Header>Dodaj nowego pracownika</Header>
         </ModalHeader>
-        <FormWrapper onSubmit={onFormSubmit}>
+        <form onSubmit={onFormSubmit}>
           <Fieldset>
             <Label>
               <Title>ID:</Title>
@@ -61,6 +60,7 @@ export const AddNewUserModal = () => {
                 onChange={handleChange("first_name")}
                 required
                 type="text"
+                id="first_name"
               />
             </Label>
             <Label>
@@ -71,6 +71,7 @@ export const AddNewUserModal = () => {
                 onChange={handleChange("last_name")}
                 required
                 type="text"
+                id="last_name"
               />
             </Label>
             <Label>
@@ -82,6 +83,7 @@ export const AddNewUserModal = () => {
                 required
                 type="number"
                 min="18"
+                id="age"
               />
             </Label>
             <Label>
@@ -92,6 +94,7 @@ export const AddNewUserModal = () => {
                 onChange={handleChange("street")}
                 required
                 type="text"
+                id="street"
               />
             </Label>
             <Label>
@@ -102,6 +105,7 @@ export const AddNewUserModal = () => {
                 onChange={handleChange("postal_code")}
                 required
                 type="text"
+                id="postal_code"
               />
             </Label>
             <Label>
@@ -112,6 +116,7 @@ export const AddNewUserModal = () => {
                 onChange={handleChange("city")}
                 required
                 type="text"
+                id="city"
               />
             </Label>
           </Fieldset>
@@ -119,16 +124,9 @@ export const AddNewUserModal = () => {
             <Link to="/Eko4uProject">
               <Button cancel>Anuluj</Button>
             </Link>
-            <Button
-              save
-              // onClick={() => {
-              //   dispatch(addNewUser(user));
-              // }}
-            >
-              Dodaj
-            </Button>
+            <Button save>Dodaj</Button>
           </ModalFooter>
-        </FormWrapper>
+        </form>
       </Wrapper>
     </>
   );

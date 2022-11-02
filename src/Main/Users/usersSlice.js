@@ -5,6 +5,7 @@ const usersSlice = createSlice({
   initialState: {
     users: [],
     user: {},
+    modal: false,
   },
   reducers: {
     fetchUsers: () => {},
@@ -28,6 +29,9 @@ const usersSlice = createSlice({
     clearInput: (state) => {
       state.user = [];
     },
+    showModal: (state) => {
+      state.modal = false;
+    },
   },
 });
 
@@ -39,14 +43,12 @@ export const {
   editUser,
   addNewUser,
   clearInput,
+  showModal,
 } = usersSlice.actions;
 
 export const selectUsersState = (state) => state.users;
-
 export const selectUsers = (state) => selectUsersState(state).users;
-
 export const selectUser = (state) => state.users.user;
-
 export const selectUserJSON = (state) => JSON.stringify(state.users.user);
 
 export const selectUsersByQuery = (state, query) => {

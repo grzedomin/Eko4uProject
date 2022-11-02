@@ -1,12 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearInput } from "../usersSlice";
+import { clearInput, selectModalState } from "../usersSlice";
 import { AddNewUserModal } from "../../Modals/AddNewUserModal";
-
 import { AddNewUserButton, Wrapper } from "./styled";
 
-export const AddNewUser = ({ isOpen, setIsOpen }) => {
+export const AddNewUser = () => {
   const dispatch = useDispatch();
+  const modal = useSelector(selectModalState);
 
   return (
     <>
@@ -14,7 +14,6 @@ export const AddNewUser = ({ isOpen, setIsOpen }) => {
         <Link to="/Eko4uProject/add-user">
           <AddNewUserButton
             onClick={() => {
-              setIsOpen(true);
               dispatch(clearInput());
             }}
           >
@@ -22,7 +21,7 @@ export const AddNewUser = ({ isOpen, setIsOpen }) => {
           </AddNewUserButton>
         </Link>
       </Wrapper>
-      <div>{isOpen && <AddNewUserModal setIsOpen={setIsOpen} />}</div>
+      <div>{modal && <AddNewUserModal />}</div>
     </>
   );
 };
