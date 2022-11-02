@@ -6,27 +6,29 @@ import {
   editUser,
   selectUserJSON,
   addNewUser,
+  setErrorState,
+  setSuccessState,
 } from "./usersSlice";
 import axios from "axios";
+import { APIUrl } from "./APIUrl";
 
 function* fetchUsersHandler() {
   try {
     yield delay(3000);
-    const response = yield axios.get("https://fronttest.ekookna.pl/");
+    const response = yield axios.get(`${APIUrl}`);
     yield put(setUsers(response.data.users));
+    yield put(setSuccessState());
   } catch (error) {
+    yield put(setErrorState("error"));
     yield console.log(error, "Error while getting users list from database");
   }
 }
 
 function* deleteUserById(id) {
   try {
-    yield fetch(
-      `https://fronttest.ekookna.pl/user/${id.payload}?_method=DELETE`,
-      {
-        method: "POST",
-      }
-    );
+    yield fetch(`${APIUrl}/user/${id.payload}?_method=DELETE`, {
+      method: "POST",
+    });
   } catch (error) {
     yield console.log(error, "Error while deleting user!");
   }
@@ -38,7 +40,7 @@ function* updateUser(user) {
   console.log(userBody, "userBody in updateUser saga");
 
   try {
-    yield fetch(`https://fronttest.ekookna.pl/user/${id}?_method=PUT`, {
+    yield fetch(`${APIUrl}/user${id}?_method=PUT`, {
       method: "POST",
       body: userBody,
     });
@@ -51,7 +53,7 @@ function* addUser() {
   const newUserBody = yield select(selectUserJSON);
   console.log(newUserBody, "newUserBody in addUser saga");
   try {
-    yield fetch(`https://fronttest.ekookna.pl/user?_method=PUT`, {
+    yield fetch(`${APIUrl}/user?_method=PUT`, {
       method: "POST",
       body: newUserBody,
     });
