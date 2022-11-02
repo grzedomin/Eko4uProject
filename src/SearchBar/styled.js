@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   padding: 0 30px;
+
+  @media (max-width: 767px) {
+    text-align: center;
+  } ;
 `;
 
 export const Title = styled.h2`
@@ -17,4 +21,8 @@ export const Input = styled.input`
   font-size: 14px;
   border-radius: 3px;
   border: 2px solid #6e6e6e;
+
+  @media(max-width: 767px) {
+    width: 80%;
+  };
 `;

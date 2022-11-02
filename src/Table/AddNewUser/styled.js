@@ -19,4 +19,11 @@ export const AddNewUserButton = styled.button`
     cursor: pointer;
     background-color: #2e8ad0;
   }
+
+  @media (max-width: 767px) {
+    margin-top: 26px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 400;
+  } ;
 `;

@@ -5,6 +5,10 @@ export const HeaderWrapper = styled.header`
   flex-direction: row;
   justify-content: space-between;
   padding: 0 30px;
+  
+  @media(max-width: 767px) {
+    text-align: center;
+  };
 `;
 
 export const Wrapper = styled.div`
