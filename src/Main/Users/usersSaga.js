@@ -26,7 +26,7 @@ function* fetchUsersHandler() {
 
 function* deleteUserById(id) {
   try {
-    yield fetch(`${APIUrl}/user/${id.payload}?_method=DELETE`, {
+    yield fetch(`${APIUrl}user/${id.payload}?_method=DELETE`, {
       method: "POST",
     });
   } catch (error) {
@@ -40,7 +40,7 @@ function* updateUser(user) {
   console.log(userBody, "userBody in updateUser saga");
 
   try {
-    yield fetch(`${APIUrl}/user${id}?_method=PUT`, {
+    yield fetch(`${APIUrl}user/${id}/?_method=PUT`, {
       method: "POST",
       body: userBody,
     });
@@ -53,7 +53,7 @@ function* addUser() {
   const newUserBody = yield select(selectUserJSON);
   console.log(newUserBody, "newUserBody in addUser saga");
   try {
-    yield fetch(`${APIUrl}/user?_method=PUT`, {
+    yield fetch(`${APIUrl}user?_method=PUT`, {
       method: "POST",
       body: newUserBody,
     });
