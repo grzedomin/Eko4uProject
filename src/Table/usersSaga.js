@@ -1,4 +1,4 @@
-import { takeEvery, put, select, call } from "redux-saga/effects";
+import { takeEvery, put, select, delay } from "redux-saga/effects";
 import {
   fetchUsers,
   setUsers,
@@ -11,6 +11,7 @@ import axios from "axios";
 
 function* fetchUsersHandler() {
   try {
+    yield delay(3000);
     const response = yield axios.get("https://fronttest.ekookna.pl/");
     yield put(setUsers(response.data.users));
   } catch (error) {
@@ -37,12 +38,9 @@ function* updateUser(user) {
   console.log(userBody, "userBody in updateUser saga");
 
   try {
-    yield fetch(`https://fronttst.ekookna.pl/user/${id}?_method=PUT`, {
+    yield fetch(`https://fronttest.ekookna.pl/user/${id}?_method=PUT`, {
       method: "POST",
       body: userBody,
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
   } catch (error) {
     yield console.log(error, "Error while updating user!");
@@ -53,12 +51,9 @@ function* addUser() {
   const newUserBody = yield select(selectUserJSON);
   console.log(newUserBody, "newUserBody in addUser saga");
   try {
-    yield fetch(`https://fronttst.ekookna.pl/user/?_method=POST`, {
+    yield fetch(`https://fronttest.ekookna.pl/user?_method=PUT`, {
       method: "POST",
       body: newUserBody,
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
   } catch (error) {
     yield console.log(error, "Error while adding new user!");
