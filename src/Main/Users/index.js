@@ -1,89 +1,26 @@
-import {
-  TableHead,
-  TableCell,
-  TableRow,
-  StyledTable,
-  ButtonsCell,
-  Button,
-} from "./styled";
-import { useEffect, useState } from "react";
-import { AddNewUser } from "./AddNewUser";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchUsers,
-  removeUser,
-  setUserSlice,
-  selectUsersByQuery,
-} from "./usersSlice";
-import { FaRegEdit } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useQueryParameter } from "../../SearchBar/queryParameters";
+import { fetchUsers, selectPageState } from "./usersSlice";
+import { Loading } from "./Loading";
+import { Error } from "./Error";
+import { Success } from "./Success";
 
 export const Users = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const query = useQueryParameter("szukaj");
-  const users = useSelector((state) => selectUsersByQuery(state, query));
   const dispatch = useDispatch();
+  const status = useSelector(selectPageState);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [fetchUsers]);
 
-  return (
-    <>
-      <AddNewUser isOpen={isOpen} setIsOpen={setIsOpen} />
-      <StyledTable>
-        <TableHead>
-          <TableRow>
-            <TableCell>Imię</TableCell>
-            <TableCell>Nazwisko</TableCell>
-            <TableCell>Kod pocztowy</TableCell>
-            <TableCell>Ulica</TableCell>
-            <TableCell>Miasto</TableCell>
-            <TableCell>Wiek</TableCell>
-            <TableCell>Id</TableCell>
-          </TableRow>
-        </TableHead>
-
-        {users &&
-          users.map((user, myKey) => {
-            return (
-              <tbody key={myKey}>
-                <TableRow key={user.id}>
-                  <TableCell>{user.first_name}</TableCell>
-                  <TableCell>{user.last_name}</TableCell>
-                  <TableCell>{user.postal_code}</TableCell>
-                  <TableCell>{user.street}</TableCell>
-                  <TableCell>{user.city}</TableCell>
-                  <TableCell>{user.age}</TableCell>
-                  <TableCell>{user.id}</TableCell>
-                  <TableCell>
-                    <ButtonsCell>
-                      <Link to={`edit-user/${user.id}`}>
-                        <Button
-                          update
-                          onClick={() => {
-                            setIsOpen(true);
-                            dispatch(setUserSlice(user));
-                          }}
-                        >
-                          <FaRegEdit /> {/*Edit icon*/}
-                        </Button>
-                      </Link>
-                      <Button
-                        remove
-                        onClick={() => dispatch(removeUser(user.id))}
-                      >
-                        <FaTrash /> {/* Delete icon */}
-                      </Button>
-                    </ButtonsCell>
-                  </TableCell>
-                </TableRow>
-              </tbody>
-            );
-          })}
-      </StyledTable>
-    </>
-  );
+  switch (status) {
+    case "loading":
+      return <Loading />;
+    case "error":
+      return <Error />;
+    case "success":
+      return <Success />;
+    default:
+      return null;
+  }
 };

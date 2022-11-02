@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const usersSlice = createSlice({
   name: "users",
   initialState: {
+    pageState: "loading",
     users: [],
     user: {},
     modal: false,
@@ -29,6 +30,13 @@ const usersSlice = createSlice({
     clearInput: (state) => {
       state.user = [];
     },
+    setErrorState: (state) => {
+      state.pageState = "error";
+      state.users = [];
+    },
+    setSuccessState: (state) => {
+      state.pageState = "success";
+    },
     showModal: (state) => {
       state.modal = false;
     },
@@ -43,6 +51,8 @@ export const {
   editUser,
   addNewUser,
   clearInput,
+  setErrorState,
+  setSuccessState,
   showModal,
 } = usersSlice.actions;
 
@@ -50,6 +60,8 @@ export const selectUsersState = (state) => state.users;
 export const selectUsers = (state) => selectUsersState(state).users;
 export const selectUser = (state) => state.users.user;
 export const selectUserJSON = (state) => JSON.stringify(state.users.user);
+export const selectPageState = (state) => state.users.pageState;
+export const selectModalState = (state) => state.users.modal;
 
 export const selectUsersByQuery = (state, query) => {
   const users = selectUsers(state);
