@@ -5,6 +5,7 @@ import {
   clearInput,
   selectUser,
   setUserSlice,
+  showModal,
 } from "../../Users/usersSlice";
 import {
   Overlay,
@@ -125,7 +126,11 @@ export const AddNewUserModal = () => {
             <Link to="/Eko4uProject">
               <Button cancel>Anuluj</Button>
             </Link>
-            <Button save>Dodaj</Button>
+            <Link to="/Eko4uProject">
+              <Button save type="submit">
+                Dodaj
+              </Button>
+            </Link>
           </ModalFooter>
         </form>
       </Wrapper>

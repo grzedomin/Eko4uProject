@@ -6,7 +6,6 @@ const usersSlice = createSlice({
     pageState: "loading",
     users: [],
     user: {},
-    modalState: false,
   },
   reducers: {
     fetchUsers: () => {},
@@ -45,9 +44,6 @@ const usersSlice = createSlice({
     setSuccessState: (state) => {
       state.pageState = "success";
     },
-    showModal: (state) => {
-      state.modal = false;
-    },
   },
 });
 
@@ -61,7 +57,6 @@ export const {
   clearInput,
   setErrorState,
   setSuccessState,
-  showModal,
 } = usersSlice.actions;
 
 export const selectUsersState = (state) => state.users;
@@ -69,7 +64,6 @@ export const selectUsers = (state) => selectUsersState(state).users;
 export const selectUser = (state) => selectUsersState(state).user;
 export const selectUserJSON = (state) => JSON.stringify(state.users.user);
 export const selectPageState = (state) => selectUsersState(state).pageState;
-export const selectModalState = (state) => selectUsersState(state).modalState;
 
 export const selectUsersByQuery = (state, query) => {
   const users = selectUsers(state);

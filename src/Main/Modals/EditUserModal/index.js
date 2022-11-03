@@ -105,14 +105,16 @@ export const EditUserModal = () => {
             <Link to="/Eko4uProject">
               <Button cancel>Anuluj</Button>
             </Link>
-            <Button
-              save
-              onClick={() => {
-                dispatch(editUser(user));
-              }}
-            >
-              Zapisz
-            </Button>
+            <Link to="/Eko4uProject">
+              <Button
+                save
+                onClick={() => {
+                  dispatch(editUser(user));
+                }}
+              >
+                Zapisz
+              </Button>
+            </Link>
           </ModalFooter>
         </form>
       </Wrapper>

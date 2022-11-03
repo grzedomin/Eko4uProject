@@ -1,12 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearInput, selectModalState } from "../usersSlice";
-import { AddNewUserModal } from "../../Modals/AddNewUserModal";
+import { clearInput } from "../usersSlice";
 import { AddNewUserButton, Wrapper } from "./styled";
 
 export const AddNewUser = () => {
   const dispatch = useDispatch();
-  const modal = useSelector(selectModalState);
 
   return (
     <>
@@ -21,7 +19,6 @@ export const AddNewUser = () => {
           </AddNewUserButton>
         </Link>
       </Wrapper>
-      <div>{modal && <AddNewUserModal />}</div>
     </>
   );
 };
