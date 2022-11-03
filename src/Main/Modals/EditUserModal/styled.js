@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+
+  @media(max-width:767px){
+    position: relative;
+  };
 `;
 
 export const Overlay = styled.div`
@@ -30,9 +34,12 @@ export const ModalHeader = styled.div`
 export const Header = styled.h2`
   line-height: 1.5;
   font-size: 1.8rem;
-`;
 
-export const FormWrapper = styled.form``;
+  @media(max-width:767px){
+    font-size: 1.6rem;
+    text-align: center;
+  };
+`;
 
 export const Fieldset = styled.fieldset`
   display: flex;
