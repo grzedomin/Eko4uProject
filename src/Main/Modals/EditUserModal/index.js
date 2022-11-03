@@ -33,7 +33,7 @@ export const EditUserModal = () => {
         <ModalHeader>
           <Header>Edytuj dane pracownika</Header>
         </ModalHeader>
-        <FormWrapper onSubmit={onFormSubmit}>
+        <form onSubmit={onFormSubmit}>
           <Fieldset>
             <Label>
               <Title>ID:</Title>
@@ -114,7 +114,7 @@ export const EditUserModal = () => {
               Zapisz
             </Button>
           </ModalFooter>
-        </FormWrapper>
+        </form>
       </Wrapper>
     </>
   );
