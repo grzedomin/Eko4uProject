@@ -29,6 +29,7 @@ function* deleteUserById(id) {
     yield fetch(`${APIUrl}user/${id.payload}?_method=DELETE`, {
       method: "POST",
     });
+    yield put(fetchUsers());
   } catch (error) {
     yield console.log(error, "Error while deleting user!");
   }
@@ -44,6 +45,7 @@ function* updateUser(user) {
       method: "POST",
       body: userBody,
     });
+    yield put(fetchUsers());
   } catch (error) {
     yield console.log(error, "Error while updating user!");
   }
@@ -53,10 +55,11 @@ function* addUser() {
   const newUserBody = yield select(selectUserJSON);
   console.log(newUserBody, "newUserBody in addUser saga");
   try {
-    yield fetch(`${APIUrl}user?_method=PUT`, {
+    yield fetch(`${APIUrl}user?_method=POST`, {
       method: "POST",
       body: newUserBody,
     });
+    yield put(fetchUsers());
   } catch (error) {
     yield console.log(error, "Error while adding new user!");
   }
