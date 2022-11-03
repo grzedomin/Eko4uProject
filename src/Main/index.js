@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Users } from "./Users";
 import { AddNewUserModal } from "./Modals/AddNewUserModal";
 import { EditUserModal } from "./Modals/EditUserModal";
@@ -11,6 +11,7 @@ export const Main = () => (
       <Route path="/Eko4uProject" element={<Users />} />
       <Route path="/Eko4uProject/add-user" element={<AddNewUserModal />} />
       <Route path="/Eko4uProject/edit-user/:id" element={<EditUserModal />} />
+      <Route path="*" element={<Navigate to="/Eko4uProject" replace />} />
     </Routes>
   </Wrapper>
 );
