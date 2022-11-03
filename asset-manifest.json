@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/Eko4uProject/static/js/main.28f7191b.js",
+    "main.js": "/Eko4uProject/static/js/main.23bb541e.js",
     "static/js/787.7206a88b.chunk.js": "/Eko4uProject/static/js/787.7206a88b.chunk.js",
     "static/media/logo.svg": "/Eko4uProject/static/media/logo.dfae9bcbcba97fd4c8f8745ee2a4f50f.svg",
     "index.html": "/Eko4uProject/index.html",
     "static/media/error-icon.svg": "/Eko4uProject/static/media/error-icon.368eab1b87e3c2785bab7da11c278b44.svg",
     "static/media/githubIcon.svg": "/Eko4uProject/static/media/githubIcon.04be58c17b3d5e9744424d414240dd85.svg",
     "static/media/icon-spinner.svg": "/Eko4uProject/static/media/icon-spinner.a503e4921519742c47da43f750f439b6.svg",
-    "main.28f7191b.js.map": "/Eko4uProject/static/js/main.28f7191b.js.map",
+    "main.23bb541e.js.map": "/Eko4uProject/static/js/main.23bb541e.js.map",
     "787.7206a88b.chunk.js.map": "/Eko4uProject/static/js/787.7206a88b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.28f7191b.js"
+    "static/js/main.23bb541e.js"
   ]
 }
