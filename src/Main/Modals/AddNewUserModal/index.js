@@ -50,6 +50,7 @@ export const AddNewUserModal = () => {
                 required
                 type="number"
                 min="1"
+                id="id"
               />
             </Label>
             <Label>
