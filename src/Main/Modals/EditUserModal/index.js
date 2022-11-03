@@ -37,14 +37,7 @@ export const EditUserModal = () => {
           <Fieldset>
             <Label>
               <Title>ID:</Title>
-              <Input
-                placeholder="1"
-                value={user.id}
-                onChange={handleChange("id")}
-                required
-                type="number"
-                min="1"
-              />
+              <Input placeholder={user.id} disabled />
             </Label>
             <Label>
               <Title>Imię:</Title>
