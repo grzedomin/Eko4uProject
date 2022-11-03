@@ -1,4 +1,4 @@
-import { takeEvery, put, select, delay } from "redux-saga/effects";
+import { takeEvery, put, select, delay, takeLatest } from "redux-saga/effects";
 import {
   fetchUsers,
   setUsers,
@@ -66,7 +66,7 @@ function* addUser() {
 }
 
 export function* usersSaga() {
-  yield takeEvery(fetchUsers.type, fetchUsersHandler);
+  yield takeLatest(fetchUsers.type, fetchUsersHandler);
   yield takeEvery(removeUser.type, deleteUserById);
   yield takeEvery(editUser.type, updateUser);
   yield takeEvery(addNewUser.type, addUser);
