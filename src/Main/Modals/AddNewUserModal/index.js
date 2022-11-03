@@ -30,9 +30,13 @@ export const AddNewUserModal = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+  };
+
+  const buttonSubmit = () => {
     dispatch(addNewUser(user));
     dispatch(clearInput());
   };
+
   return (
     <>
       <Overlay />
@@ -127,7 +131,7 @@ export const AddNewUserModal = () => {
               <Button cancel>Anuluj</Button>
             </Link>
             <Link to="/Eko4uProject">
-              <Button save type="submit">
+              <Button save type="submit" onClick={buttonSubmit}>
                 Dodaj
               </Button>
             </Link>
